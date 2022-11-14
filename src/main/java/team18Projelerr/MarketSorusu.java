@@ -1,4 +1,4 @@
-package team18Projeler;
+package team18Projelerr;
 
 public class MarketSorusu {
     /*/* Basarili Market alış-veriş programı.
