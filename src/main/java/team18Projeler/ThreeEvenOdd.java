@@ -1,4 +1,4 @@
-package team18Projelerr;
+package team18Projeler;
 
 public class ThreeEvenOdd {
      /*
