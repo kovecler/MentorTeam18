@@ -1,6 +1,6 @@
 package team18Projeler;
 
-public class UpdateRange {
+public class UpdateRange_Selma {
      /*
     Update a method uRange
     parameters are int array and two ints
