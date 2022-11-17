@@ -1,7 +1,53 @@
 package team18Projeler;
 
+import java.util.ArrayList;
+
 public class MarketSorusu {
+    //programı ben hallediyorum.Mehmet C
     public static void main(String[] args) {
+        ArrayList <String> urunNo =new ArrayList<>();
+ArrayList <String> urunler=new ArrayList<>();
+ArrayList<Double> fiyat=new ArrayList<>();
+urunNo.add("00");
+urunNo.add("01");
+urunNo.add("02");
+urunNo.add("03");
+urunNo.add("04");
+urunNo.add("05");
+urunNo.add("06");
+urunNo.add("07");
+urunNo.add("08");
+urunNo.add("09");
+urunNo.add("10");
+
+
+
+
+urunler.add("Domates");
+urunler.add("Patates");
+urunler.add("Biber");
+urunler.add("Soğan");
+urunler.add("Havuç");
+urunler.add("Elma");
+urunler.add("Muz");
+urunler.add("Çilek");
+urunler.add("Kavun");
+urunler.add("Üzüm");
+urunler.add("Limon");
+
+
+fiyat.add(2.10);
+fiyat.add(3.20);
+fiyat.add(1.50);
+fiyat.add(2.30);
+fiyat.add(3.10);
+fiyat.add(1.20);
+fiyat.add(1.90);
+fiyat.add(6.10);
+fiyat.add(4.30);
+fiyat.add(2.70);
+fiyat.add(0.50);
+        System.out.println(fiyat);
 
     }
     /*/* Basarili Market alış-veriş programı.
