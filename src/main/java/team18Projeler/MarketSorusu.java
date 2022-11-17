@@ -1,6 +1,9 @@
 package team18Projeler;
 
 public class MarketSorusu {
+    public static void main(String[] args) {
+
+    }
     /*/* Basarili Market alış-veriş programı.
 		 *
 		 * 1. Adım: Ürünler ve fiyatları içeren listeleri oluşturunuz.
