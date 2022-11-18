@@ -62,17 +62,7 @@ public class MarketSorusu {
         Scanner scan = new Scanner(System.in);
         char listele = scan.next().toLowerCase().charAt(0);
 
-    /*    if (listele == 'e') {
-            urunleriListele();
 
-        }else if (listele== 'h') {
-
-
-            System.out.println("ihtiyacınız olduğunda yine bekleriz");
-
-        }
-
-     */
         switch (listele) {
 
             case 'e':
@@ -110,6 +100,9 @@ public class MarketSorusu {
             case 'h':
                 System.out.println("ihtiyacınız olduğunda yine bekleriz");
                 break;
+            default:
+                System.out.println("Yanlış bir seçim yaptınız");
+
 
 
         }
