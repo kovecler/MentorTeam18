@@ -9,9 +9,15 @@ public class MarketSorusu {
     static List<String> urunNo = new ArrayList<>();
     static List<String> urunler = new ArrayList<>();
     static List<Double> fiyat = new ArrayList<>();
+
     public static void main(String[] args) {
-
-
+        double hesapToplami;
+        double sepetToplami = 0;
+        int urunMiktari = 0;
+        char devamDurumu;
+        double odemeToplamı = 0;
+        double odemeMiktarı = 0;
+        double ekOdeme = 0;
 
         urunNo.add("00");
         urunNo.add("01");
@@ -56,39 +62,72 @@ public class MarketSorusu {
         Scanner scan = new Scanner(System.in);
         char listele = scan.next().toLowerCase().charAt(0);
 
-        if (listele == 'e') {
+    /*    if (listele == 'e') {
             urunleriListele();
 
-        }else if (listele== 'h'){
+        }else if (listele== 'h') {
+
+
             System.out.println("ihtiyacınız olduğunda yine bekleriz");
+
         }
 
-        System.out.println("Lütfen istediğiniz ürünün kodunu giriniz");
-        int urunKodu=scan.nextInt();
-        int urunMiktari;
-        if (urunKodu==8){
-            System.out.println("kaç adet almak istiyorsunuz?");
-            urunMiktari=scan.nextInt();
-        }else if (urunKodu>=0 && urunKodu<urunler.size()){
-            System.out.println("kaç kg almak istiyorsunuz? ");
-            urunMiktari=scan.nextInt();
-        }else {
-            System.out.println("lütfen seçiminizi 0'dan "+(urunler.size()-1)+" 'a kadar olan bir ürün kodu giriniz");
-            urunleriListele();
+     */
+        switch (listele) {
+
+            case 'e':
+                do {
+                    System.out.println("Lütfen istediğiniz ürünün kodunu giriniz");
+                    int urunKodu = scan.nextInt();
+
+                    if (urunKodu == 8) {
+                        System.out.println("kaç adet almak istiyorsunuz?");
+                        urunMiktari = scan.nextInt();
+                    } else if (urunKodu >= 0 && urunKodu < urunler.size()) {
+                        System.out.println("kaç kg almak istiyorsunuz? ");
+                        urunMiktari = scan.nextInt();
+                    } else {
+                        System.out.println("lütfen seçiminizi 0'dan " + (urunler.size() - 1) + " 'a kadar olan bir ürün kodu giriniz");
+                        urunleriListele();
+                    }
+                    sepetToplami += odemeHesapla(urunMiktari, fiyat.get(urunKodu));
+                    System.out.println("aldığınız ürünlerin toplamı : " + sepetToplami + " TL'dir. Alışverişe devam etmek istiyor musunuz? e/h");
+                    devamDurumu = scan.next().toLowerCase().charAt(0);
+                }
+                while (devamDurumu == 'e');
+
+                System.out.println("Toplam ödeme miktarınız : " + sepetToplami + " TL dir. Lütfen vereceğiniz para miktarını giriniz");
+                odemeMiktarı = scan.nextDouble();
+                odemeToplamı += odemeMiktarı;
+                while (odemeToplamı < sepetToplami) {
+                    System.out.println((sepetToplami - odemeToplamı) + " TL kadar daha odeme yapmanız gerekmektedir. Ek odeme miktarını giriniz");
+                    ekOdeme = scan.nextDouble();
+
+                    odemeToplamı += ekOdeme;
+                }
+                System.out.println("Alışverişiniz için teşekkür ederiz. Lütfen para üstü olarak " + (odemeToplamı - sepetToplami) + " Tl yi almayı unutmayınız. Yine bekleriz...");
+                break;
+            case 'h':
+                System.out.println("ihtiyacınız olduğunda yine bekleriz");
+                break;
+
+
+        }
+    }
+        public static void urunleriListele () {
+
+            for (int i = 0; i < urunNo.size(); i++) {
+
+                System.out.println(urunNo.get(i) + " kodlu " + urunler.get(i) + " ürününün fiyatı " + fiyat.get(i) + " TL dir.");
+            }
+        }
+        public static double odemeHesapla ( int urunMiktari, double urunFiyati){
+            double hesapToplami = urunMiktari * urunFiyati;
+            return hesapToplami;
+
         }
 
     }
-     public static void urunleriListele (){
-
-        for(int i=0; i<urunNo.size(); i++){
-
-            System.out.println(urunNo.get(i)+ " kodlu "+ urunler.get(i)+" ürününün fiyatı "+ fiyat.get(i)+" TL dir.");
-        }
-
-
-
-
-     }
 
     /*/* Basarili Market alış-veriş programı.
 		 *
@@ -113,4 +152,4 @@ public class MarketSorusu {
 		 * 6. Eğer devam etmek istiyorsa yeniden ürün seçme kısmına yönlendiriniz.
 		 * 7. Eğer bitirmek istiyorsa ödemeyi kontrol edip para ustu hesaplayarak  programı bitirinzi.
 		 */
-}
+
